@@ -1,18 +1,13 @@
-// stateless component
-import React from 'react';
+import React, { Fragment } from 'react'
 
-const ItemCheckbox = (props) => {
+const ItemCheckbox = ({ label, change, isChecked }) => {
     return (
-        <li>
-            <input
-                type="checkbox"
-                key={props.id}
-                onChange={props.handleItemCheck}    // appel de la fonction handleItemCheck à chaque changement d'état
-                checked={props.isChecked}
-                value={props.value}
-            /> {props.value}
-        </li>
-    );
+        <Fragment>
+            <input type='checkbox' checked={isChecked} onChange={(event) => change(event)} />
+            <label>{label}</label>
+            <br />
+        </Fragment>
+    )
 }
 
-export default ItemCheckbox;
+export default ItemCheckbox
